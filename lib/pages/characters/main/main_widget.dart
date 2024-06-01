@@ -72,15 +72,16 @@ class _MainWidgetState extends State<MainWidget> {
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          16.0, 0.0, 16.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -133,8 +134,9 @@ class _MainWidgetState extends State<MainWidget> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        24.0, 0.0, 24.0, 0.0),
+                                    padding:
+                                        const EdgeInsetsDirectional.fromSTEB(
+                                            24.0, 0.0, 24.0, 0.0),
                                     child: Text(
                                       'Oops! There are no more characters to show.',
                                       textAlign: TextAlign.center,
@@ -149,7 +151,8 @@ class _MainWidgetState extends State<MainWidget> {
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, 0.0),
+                                    alignment:
+                                        const AlignmentDirectional(0.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.min,
                                       mainAxisAlignment:
@@ -217,7 +220,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                         ),
                                                   ),
                                                 ),
-                                              ].divide(const SizedBox(width: 5.0)),
+                                              ].divide(
+                                                  const SizedBox(width: 5.0)),
                                             ),
                                           ),
                                         ),
@@ -250,7 +254,7 @@ class _MainWidgetState extends State<MainWidget> {
                                 final charListItem = charList[index];
                                 logFirebaseEvent('SwipeableStack_backend_call');
 
-                                await mainCharactersRecord.reference
+                                await charListItem.reference
                                     .update(createCharactersRecordData(
                                   isRejected: true,
                                 ));
@@ -273,7 +277,7 @@ class _MainWidgetState extends State<MainWidget> {
                                 final charListItem = charList[index];
                                 logFirebaseEvent('SwipeableStack_backend_call');
 
-                                await mainCharactersRecord.reference
+                                await charListItem.reference
                                     .update(createCharactersRecordData(
                                   isPicked: true,
                                 ));
@@ -299,7 +303,8 @@ class _MainWidgetState extends State<MainWidget> {
                                 return Stack(
                                   children: [
                                     Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          const AlignmentDirectional(0.0, 0.0),
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
@@ -337,20 +342,20 @@ class _MainWidgetState extends State<MainWidget> {
                                             end: AlignmentDirectional(0, 1.0),
                                           ),
                                         ),
-                                        alignment:
-                                            const AlignmentDirectional(-1.0, 1.0),
+                                        alignment: const AlignmentDirectional(
+                                            -1.0, 1.0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 10.0, 10.0),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(10.0, 0.0, 10.0, 10.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.min,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        -1.0, 1.0),
                                                 child: Text(
                                                   charListItem.characterName,
                                                   style: FlutterFlowTheme.of(
@@ -368,8 +373,9 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        -1.0, 1.0),
                                                 child: Text(
                                                   charListItem.isNolifili ==
                                                           true
@@ -394,8 +400,9 @@ class _MainWidgetState extends State<MainWidget> {
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
-                                                    -1.0, 1.0),
+                                                alignment:
+                                                    const AlignmentDirectional(
+                                                        -1.0, 1.0),
                                                 child: Text(
                                                   charListItem.characterBio,
                                                   style: FlutterFlowTheme.of(
@@ -412,7 +419,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                       ),
                                                 ),
                                               ),
-                                            ].divide(const SizedBox(height: 5.0)),
+                                            ].divide(
+                                                const SizedBox(height: 5.0)),
                                           ),
                                         ),
                                       ),
