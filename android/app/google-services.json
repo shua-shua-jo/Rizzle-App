@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1043875124767",
+    "project_id": "test-daz7tz",
+    "storage_bucket": "test-daz7tz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1043875124767:android:b7655cec365f67bb38a72a",
+        "android_client_info": {
+          "package_name": "com.rizzle.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg2AUuZpSAwFrQfffNheSFKwa2DZmg17c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
