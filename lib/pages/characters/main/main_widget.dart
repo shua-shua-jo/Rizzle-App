@@ -73,15 +73,16 @@ class _MainWidgetState extends State<MainWidget> {
             body: SafeArea(
               top: true,
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
+                padding:
+                    const EdgeInsetsDirectional.fromSTEB(0.0, 36.0, 0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(
+                          16.0, 0.0, 16.0, 0.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -221,7 +222,8 @@ class _MainWidgetState extends State<MainWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
-                                                              ),
+                                                              ),                                              
+                                                      ),                                                                                              
                                                     ),
                                                   ),
                                                 ].divide(const SizedBox(width: 5.0)),
@@ -262,7 +264,6 @@ class _MainWidgetState extends State<MainWidget> {
                                   final charListItem = charList[index];
                                   logFirebaseEvent(
                                       'SwipeableStack_backend_call');
-
                                   await currentUserReference!.update({
                                     ...mapToFirestore(
                                       {
@@ -278,7 +279,6 @@ class _MainWidgetState extends State<MainWidget> {
                                   final charListItem = charList[index];
                                   logFirebaseEvent(
                                       'SwipeableStack_backend_call');
-
                                   await currentUserReference!.update({
                                     ...mapToFirestore(
                                       {
