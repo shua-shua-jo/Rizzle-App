@@ -87,31 +87,15 @@ class _CharacterDetailsWidgetState extends State<CharacterDetailsWidget> {
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 24.0, 108.0, 24.0, 8.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                logFirebaseEvent(
-                                    'CHARACTER_DETAILS_Container_vg6xlkz2_ON_');
-                                logFirebaseEvent('customAppbar_backend_call');
-
-                                await widget.charRef!.reference
-                                    .update(createCharactersRecordData(
-                                  isPicked: false,
-                                ));
-                              },
-                              child: wrapWithModel(
-                                model: _model.customAppbarModel,
-                                updateCallback: () => setState(() {}),
-                                child: CustomAppbarWidget(
-                                  backButton: true,
-                                  actionButton: false,
-                                  optionsButton: false,
-                                  actionButtonAction: () async {},
-                                  optionsButtonAction: () async {},
-                                ),
+                            child: wrapWithModel(
+                              model: _model.customAppbarModel,
+                              updateCallback: () => setState(() {}),
+                              child: CustomAppbarWidget(
+                                backButton: true,
+                                actionButton: false,
+                                optionsButton: false,
+                                actionButtonAction: () async {},
+                                optionsButtonAction: () async {},
                               ),
                             ),
                           ),

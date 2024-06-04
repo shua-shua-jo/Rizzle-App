@@ -4,19 +4,13 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'onboarding_model.dart';
 export 'onboarding_model.dart';
 
 class OnboardingWidget extends StatefulWidget {
-  const OnboardingWidget({
-    super.key,
-    this.update,
-  });
-
-  final bool? update;
+  const OnboardingWidget({super.key});
 
   @override
   State<OnboardingWidget> createState() => _OnboardingWidgetState();
@@ -33,14 +27,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     _model = createModel(context, () => OnboardingModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Onboarding'});
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      logFirebaseEvent('ONBOARDING_PAGE_Onboarding_ON_INIT_STATE');
-      logFirebaseEvent('Onboarding_update_page_state');
-
-      setState(() {});
-    });
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -98,9 +84,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 24.0, 0.0, 0.0),
                                 child: Text(
-                                  widget.update != true
-                                      ? 'Select your preference(s)'
-                                      : 'Update your preference(s)',
+                                  'Select your preference(s)',
                                   style: FlutterFlowTheme.of(context)
                                       .displaySmall
                                       .override(
@@ -124,9 +108,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       Flexible(
                                         child: Container(
                                           height: 200.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                          decoration: const BoxDecoration(
+                                            color: Colors.transparent,
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -149,14 +132,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                 ),
                                                 child: Checkbox(
                                                   value: _model
-                                                      .checkboxValue1 ??= (widget
-                                                                  .update ==
-                                                              true) &&
-                                                          FFAppState()
-                                                              .userPreference
-                                                              .contains('Noli')
-                                                      ? true
-                                                      : false,
+                                                      .checkboxValue1 ??= false,
                                                   onChanged: (newValue) async {
                                                     setState(() =>
                                                         _model.checkboxValue1 =
@@ -203,54 +179,110 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                   direction:
                                                       FlipDirection.HORIZONTAL,
                                                   speed: 300,
-                                                  front: Container(
-                                                    width: 300.0,
-                                                    height: 200.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .redwood,
-                                                      boxShadow: const [
-                                                        BoxShadow(
-                                                          blurRadius: 3.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            7.5,
-                                                            7.5,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                12.0),
-                                                      ),
-                                                    ),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.asset(
-                                                        'assets/images/SISA_-_card.png',
+                                                  front: Stack(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0.0, 0.0),
+                                                    children: [
+                                                      Container(
                                                         width: 300.0,
                                                         height: 200.0,
-                                                        fit: BoxFit.cover,
-                                                        alignment: const Alignment(
-                                                            0.0, -1.0),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .redwood,
+                                                          boxShadow: const [
+                                                            BoxShadow(
+                                                              blurRadius: 3.0,
+                                                              color: Color(
+                                                                  0x33000000),
+                                                              offset: Offset(
+                                                                7.5,
+                                                                7.5,
+                                                              ),
+                                                            )
+                                                          ],
+                                                          borderRadius:
+                                                              const BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                        ),
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'assets/images/SISA_-_card.png',
+                                                            width: 300.0,
+                                                            height: 200.0,
+                                                            fit: BoxFit.cover,
+                                                            alignment:
+                                                                const Alignment(
+                                                                    0.0, -1.0),
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Container(
+                                                              width: 300.0,
+                                                              height: 200.0,
+                                                              decoration:
+                                                                  const BoxDecoration(
+                                                                color: Color(
+                                                                    0x7F494949),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    const AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  'Tap Me',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Plus Jakarta Sans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        fontSize:
+                                                                            18.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                   back: Container(
                                                     width: 300.0,
@@ -347,9 +379,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                       Flexible(
                                         child: Container(
                                           height: 200.0,
-                                          decoration: BoxDecoration(
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryBackground,
+                                          decoration: const BoxDecoration(
+                                            color: Colors.transparent,
                                           ),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -377,14 +408,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                 ),
                                                 child: Checkbox(
                                                   value: _model
-                                                          .checkboxValue2 ??=
-                                                      (widget.update == true) &&
-                                                              FFAppState()
-                                                                  .userPreference
-                                                                  .contains(
-                                                                      'Elfili')
-                                                          ? true
-                                                          : false,
+                                                      .checkboxValue2 ??= false,
                                                   onChanged: (newValue) async {
                                                     setState(() =>
                                                         _model.checkboxValue2 =
@@ -431,54 +455,107 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                                   direction:
                                                       FlipDirection.HORIZONTAL,
                                                   speed: 300,
-                                                  front: Container(
-                                                    width: 300.0,
-                                                    height: 200.0,
-                                                    decoration: BoxDecoration(
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .redwood,
-                                                      boxShadow: const [
-                                                        BoxShadow(
-                                                          blurRadius: 3.0,
-                                                          color:
-                                                              Color(0x33000000),
-                                                          offset: Offset(
-                                                            7.5,
-                                                            7.5,
-                                                          ),
-                                                        )
-                                                      ],
-                                                      borderRadius:
-                                                          const BorderRadius.only(
-                                                        bottomLeft:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        bottomRight:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        topLeft:
-                                                            Radius.circular(
-                                                                12.0),
-                                                        topRight:
-                                                            Radius.circular(
-                                                                12.0),
-                                                      ),
-                                                    ),
-                                                    child: ClipRRect(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                      child: Image.asset(
-                                                        'assets/images/JULI_-_card.png',
+                                                  front: Stack(
+                                                    children: [
+                                                      Container(
                                                         width: 300.0,
                                                         height: 200.0,
-                                                        fit: BoxFit.cover,
-                                                        alignment: const Alignment(
-                                                            0.0, -1.0),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .redwood,
+                                                          boxShadow: const [
+                                                            BoxShadow(
+                                                              blurRadius: 3.0,
+                                                              color: Color(
+                                                                  0x33000000),
+                                                              offset: Offset(
+                                                                7.5,
+                                                                7.5,
+                                                              ),
+                                                            )
+                                                          ],
+                                                          borderRadius:
+                                                              const BorderRadius.only(
+                                                            bottomLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            bottomRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topLeft:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                            topRight:
+                                                                Radius.circular(
+                                                                    12.0),
+                                                          ),
+                                                        ),
+                                                        child: ClipRRect(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                          child: Image.asset(
+                                                            'assets/images/JULI_-_card.png',
+                                                            width: 300.0,
+                                                            height: 200.0,
+                                                            fit: BoxFit.cover,
+                                                            alignment:
+                                                                const Alignment(
+                                                                    0.0, -1.0),
+                                                          ),
+                                                        ),
                                                       ),
-                                                    ),
+                                                      Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0.0, 0.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .center,
+                                                          children: [
+                                                            Container(
+                                                              width: 300.0,
+                                                              height: 200.0,
+                                                              decoration:
+                                                                  const BoxDecoration(
+                                                                color: Color(
+                                                                    0x80494949),
+                                                              ),
+                                                              child: Align(
+                                                                alignment:
+                                                                    const AlignmentDirectional(
+                                                                        0.0,
+                                                                        0.0),
+                                                                child: Text(
+                                                                  'Tap Me',
+                                                                  style: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .override(
+                                                                        fontFamily:
+                                                                            'Plus Jakarta Sans',
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .secondaryBackground,
+                                                                        fontSize:
+                                                                            18.0,
+                                                                        letterSpacing:
+                                                                            0.0,
+                                                                        fontWeight:
+                                                                            FontWeight.bold,
+                                                                      ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                   back: Container(
                                                     width: 300.0,
@@ -594,17 +671,11 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               'ONBOARDING_PAGE_CONTINUE_BTN_ON_TAP');
                           logFirebaseEvent('Button_haptic_feedback');
                           HapticFeedback.lightImpact();
-                          if (widget.update!) {
-                            logFirebaseEvent('Button_navigate_to');
+                          logFirebaseEvent('Button_navigate_to');
 
-                            context.goNamed('Main');
-                          } else {
-                            logFirebaseEvent('Button_navigate_to');
-
-                            context.pushNamed('Onboarding_CreateUser');
-                          }
+                          context.pushNamed('Onboarding_CreateUser');
                         },
-                  text: !widget.update! ? 'Continue' : 'Update',
+                  text: 'Continue',
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 50.0,
@@ -616,7 +687,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           fontFamily: 'Plus Jakarta Sans',
                           letterSpacing: 0.0,
                         ),
-                    elevation: 0.0,
+                    elevation: 3.0,
                     borderSide: const BorderSide(
                       color: Colors.transparent,
                       width: 1.0,

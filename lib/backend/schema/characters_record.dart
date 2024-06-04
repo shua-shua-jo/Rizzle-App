@@ -40,16 +40,6 @@ class CharactersRecord extends FirestoreRecord {
   String get characterBio => _characterBio ?? '';
   bool hasCharacterBio() => _characterBio != null;
 
-  // "is_picked" field.
-  bool? _isPicked;
-  bool get isPicked => _isPicked ?? false;
-  bool hasIsPicked() => _isPicked != null;
-
-  // "is_rejected" field.
-  bool? _isRejected;
-  bool get isRejected => _isRejected ?? false;
-  bool hasIsRejected() => _isRejected != null;
-
   // "is_nolifili" field.
   bool? _isNolifili;
   bool get isNolifili => _isNolifili ?? false;
@@ -61,8 +51,6 @@ class CharactersRecord extends FirestoreRecord {
     _characterOrigin = snapshotData['character_origin'] as String?;
     _characterImage = snapshotData['character_image'] as String?;
     _characterBio = snapshotData['character_bio'] as String?;
-    _isPicked = snapshotData['is_picked'] as bool?;
-    _isRejected = snapshotData['is_rejected'] as bool?;
     _isNolifili = snapshotData['is_nolifili'] as bool?;
   }
 
@@ -106,8 +94,6 @@ Map<String, dynamic> createCharactersRecordData({
   String? characterOrigin,
   String? characterImage,
   String? characterBio,
-  bool? isPicked,
-  bool? isRejected,
   bool? isNolifili,
 }) {
   final firestoreData = mapToFirestore(
@@ -117,8 +103,6 @@ Map<String, dynamic> createCharactersRecordData({
       'character_origin': characterOrigin,
       'character_image': characterImage,
       'character_bio': characterBio,
-      'is_picked': isPicked,
-      'is_rejected': isRejected,
       'is_nolifili': isNolifili,
     }.withoutNulls,
   );
@@ -136,8 +120,6 @@ class CharactersRecordDocumentEquality implements Equality<CharactersRecord> {
         e1?.characterOrigin == e2?.characterOrigin &&
         e1?.characterImage == e2?.characterImage &&
         e1?.characterBio == e2?.characterBio &&
-        e1?.isPicked == e2?.isPicked &&
-        e1?.isRejected == e2?.isRejected &&
         e1?.isNolifili == e2?.isNolifili;
   }
 
@@ -148,8 +130,6 @@ class CharactersRecordDocumentEquality implements Equality<CharactersRecord> {
         e?.characterOrigin,
         e?.characterImage,
         e?.characterBio,
-        e?.isPicked,
-        e?.isRejected,
         e?.isNolifili
       ]);
 

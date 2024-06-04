@@ -72,16 +72,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => appStateNotifier.loggedIn
-          ? const NavBarPage()
-          : const OnboardingSlideshowWidget(),
+      errorBuilder: (context, state) =>
+          appStateNotifier.loggedIn ? const NavBarPage() : const SplashWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? const NavBarPage()
-              : const OnboardingSlideshowWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? const NavBarPage() : const SplashWidget(),
           routes: [
             FFRoute(
               name: 'Splash',
@@ -96,6 +94,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'Main',
               path: 'main',
+              requireAuth: true,
               builder: (context, params) => params.isEmpty
                   ? const NavBarPage(initialPage: 'Main')
                   : const MainWidget(),
@@ -103,6 +102,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'CharacterDetails',
               path: 'char/:charRef',
+              requireAuth: true,
               asyncParams: {
                 'charRef':
                     getDoc(['characters'], CharactersRecord.fromSnapshot),
@@ -130,23 +130,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             ),
             FFRoute(
               name: 'Recents',
-              path: 'edit-preferences',
+              path: 'recents',
+              requireAuth: true,
               builder: (context, params) => const RecentsWidget(),
             ),
             FFRoute(
               name: 'Onboarding',
               path: 'onboarding-preferences',
-              builder: (context, params) => OnboardingWidget(
-                update: params.getParam(
-                  'update',
-                  ParamType.bool,
-                ),
-              ),
+              builder: (context, params) => const OnboardingWidget(),
             ),
             FFRoute(
               name: 'Onboarding_CreateUser',
               path: 'onboarding-createUser',
               builder: (context, params) => const OnboardingCreateUserWidget(),
+            ),
+            FFRoute(
+              name: 'resetPassword',
+              path: 'resetPassword',
+              builder: (context, params) => const ResetPasswordWidget(),
+            ),
+            FFRoute(
+              name: 'loginPage',
+              path: 'loginPage',
+              builder: (context, params) => const LoginPageWidget(),
+            ),
+            FFRoute(
+              name: 'Preferences',
+              path: 'edit-preferences',
+              requireAuth: true,
+              builder: (context, params) => const PreferencesWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -319,7 +331,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/onboarding-tutorial';
+            return '/splash';
           }
           return null;
         },
@@ -333,13 +345,15 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/RIZZZLE_splash.png',
-                    fit: BoxFit.cover,
-                  ),
-                )
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: Colors.transparent,
+                      child: Image.asset(
+                        'assets/images/RIZZZLE_splash.png',
+                        fit: BoxFit.cover,
+                      ),
+                    )
               : page;
 
           final transitionInfo = state.transitionInfo;

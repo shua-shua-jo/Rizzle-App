@@ -8,11 +8,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future refreshCharacters(List<CharactersRecord> characterDocs) async {
+Future refreshCharacters(DocumentReference<UsersRecord> user) async {
   // Change some values for all documents
-  for (var character in characterDocs) {
-    await character.reference.update({"isRejected": false});
-  }
+  user.update({"rejected": []});
 }
 // Set your action name, define your arguments and return parameter,
 // and then add the boilerplate code using the green button on the right!

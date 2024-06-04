@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../auth_manager.dart';
 import '../../flutter_flow/flutter_flow_util.dart';
 
+import '/backend/backend.dart';
 import 'anonymous_auth.dart';
 import 'apple_auth.dart';
 import 'email_auth.dart';
@@ -92,6 +93,7 @@ class FirebaseAuthManager extends AuthManager
         return;
       }
       await currentUser?.updateEmail(email);
+      await updateUserDocument(email: email);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'requires-recent-login') {
         ScaffoldMessenger.of(context).hideCurrentSnackBar();
@@ -284,6 +286,9 @@ class FirebaseAuthManager extends AuthManager
     try {
       final userCredential = await signInFunc();
       logFirebaseAuthEvent(userCredential?.user, authProvider);
+      if (userCredential?.user != null) {
+        await maybeCreateUser(userCredential!.user!);
+      }
       return userCredential == null
           ? null
           : RizzleAppFirebaseUser.fromUserCredential(userCredential);

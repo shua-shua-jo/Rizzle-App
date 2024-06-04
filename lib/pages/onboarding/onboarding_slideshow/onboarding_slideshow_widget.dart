@@ -610,15 +610,7 @@ class _OnboardingSlideshowWidgetState extends State<OnboardingSlideshowWidget>
                           } else {
                             logFirebaseEvent('Button_navigate_to');
 
-                            context.pushNamed(
-                              'Onboarding',
-                              queryParameters: {
-                                'update': serializeParam(
-                                  false,
-                                  ParamType.bool,
-                                ),
-                              }.withoutNulls,
-                            );
+                            context.pushNamed('Onboarding');
                           }
                         },
                         text: 'Continue',
@@ -635,7 +627,7 @@ class _OnboardingSlideshowWidgetState extends State<OnboardingSlideshowWidget>
                                     fontFamily: 'Plus Jakarta Sans',
                                     letterSpacing: 0.0,
                                   ),
-                          elevation: 0.0,
+                          elevation: 3.0,
                           borderSide: const BorderSide(
                             color: Colors.transparent,
                             width: 1.0,

@@ -12,3 +12,8 @@ export '/pages/onboarding/onboarding/onboarding_widget.dart'
     show OnboardingWidget;
 export '/pages/onboarding/onboarding_create_user/onboarding_create_user_widget.dart'
     show OnboardingCreateUserWidget;
+export '/pages/reset_password/reset_password_widget.dart'
+    show ResetPasswordWidget;
+export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
+export '/pages/profile/preferences/preferences_widget.dart'
+    show PreferencesWidget;

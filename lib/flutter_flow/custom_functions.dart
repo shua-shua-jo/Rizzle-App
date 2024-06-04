@@ -31,11 +31,10 @@ List<CharactersRecord>? filterCharacters(
   List<CharactersRecord> charRecords = [];
 
   for (CharactersRecord char in inputCharacters) {
-    bool isRejected = char.isRejected;
     bool isNolifili = char.isNolifili;
     String charOrigin = char.characterOrigin;
 
-    if ((!isRejected & userPreference.contains(charOrigin)) || isNolifili) {
+    if (userPreference.contains(charOrigin) || isNolifili) {
       charRecords.add(char);
     }
   }
@@ -46,20 +45,30 @@ List<CharactersRecord>? filterCharacters(
   }
 }
 
-bool showWidgerChar(
+bool showRefreshBtn(
   List<CharactersRecord> characterDocs,
   List<String> userPreference,
 ) {
-  bool show = false;
+  bool show = true;
   for (CharactersRecord char in characterDocs) {
-    bool isRejected = char.isRejected;
     bool isNolifili = char.isNolifili;
     String charOrigin = char.characterOrigin;
 
-    if ((!isRejected & userPreference.contains(charOrigin)) || isNolifili) {
-      show = true;
+    if (userPreference.contains(charOrigin) || isNolifili) {
+      show = false;
       break;
     }
   }
   return show;
+}
+
+bool checkPreference(
+  List<String> userPreference,
+  String preference,
+) {
+  if (userPreference.contains(preference)) {
+    return true;
+  } else {
+    return false;
+  }
 }
