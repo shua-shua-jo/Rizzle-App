@@ -39,6 +39,9 @@ abstract class FlutterFlowTheme {
   late Color africanViolet;
   late Color rizz;
   late Color accent;
+  late Color primaryBtnText;
+  late Color lineColor;
+  late Color backgroundComponents;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -135,6 +138,9 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color africanViolet = const Color(0xFFB58DB6);
   late Color rizz = const Color(0xFF935153);
   late Color accent = const Color(0xFF6AADAB);
+  late Color primaryBtnText = const Color(0xFFFFFFFF);
+  late Color lineColor = const Color(0xFFE0E3E7);
+  late Color backgroundComponents = const Color(0xFF1D2428);
 }
 
 abstract class Typography {

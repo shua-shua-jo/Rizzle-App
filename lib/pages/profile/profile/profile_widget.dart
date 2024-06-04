@@ -1,10 +1,10 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'profile_model.dart';
 export 'profile_model.dart';
 
@@ -45,8 +45,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
@@ -87,14 +85,16 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                 ),
                           ),
                         ),
-                        Text(
-                          FFAppState().displayName,
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'Outfit',
-                                letterSpacing: 0.0,
-                              ),
+                        AuthUserStreamWidget(
+                          builder: (context) => Text(
+                            currentUserDisplayName,
+                            style: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
@@ -127,7 +127,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 6.0, 0.0, 0.0),
                                     child: Text(
-                                      'As Computer Science students, we want to integrate our skills in narrating and find a link between the historical events to this modern age.',
+                                      'As Computer Science students, we want to integrate our skills in narrating the historical events and and finding a link to the modern age.',
                                       style: FlutterFlowTheme.of(context)
                                           .labelLarge
                                           .override(
@@ -135,6 +135,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
                                           ),
                                     ),
                                   ),
@@ -228,15 +229,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   logFirebaseEvent(
                                       'EatingPrefsTile_navigate_to');
 
-                                  context.pushNamed(
-                                    'Onboarding',
-                                    queryParameters: {
-                                      'update': serializeParam(
-                                        true,
-                                        ParamType.bool,
-                                      ),
-                                    }.withoutNulls,
-                                  );
+                                  context.pushNamed('Onboarding');
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,

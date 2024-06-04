@@ -143,7 +143,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                                   fontFamily: 'Plus Jakarta Sans',
                                   letterSpacing: 0.0,
                                 ),
-                        elevation: 0.0,
+                        elevation: 3.0,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
@@ -162,11 +162,12 @@ class _SplashWidgetState extends State<SplashWidget> {
                             text: TextSpan(
                               children: [
                                 TextSpan(
-                                  text: 'Already know how this works?  ',
+                                  text: 'Already have an account?  ',
                                   style: FlutterFlowTheme.of(context)
                                       .bodySmall
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                       ),
                                 ),
@@ -176,9 +177,9 @@ class _SplashWidgetState extends State<SplashWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
+                                        fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
-                                        decoration: TextDecoration.underline,
                                       ),
                                   mouseCursor: SystemMouseCursors.click,
                                   recognizer: TapGestureRecognizer()
@@ -188,15 +189,7 @@ class _SplashWidgetState extends State<SplashWidget> {
                                       logFirebaseEvent(
                                           'RichTextSpan_navigate_to');
 
-                                      context.pushNamed(
-                                        'Onboarding',
-                                        queryParameters: {
-                                          'update': serializeParam(
-                                            false,
-                                            ParamType.bool,
-                                          ),
-                                        }.withoutNulls,
-                                      );
+                                      context.pushNamed('loginPage');
                                     },
                                 )
                               ],
