@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'login_page_model.dart';
 export 'login_page_model.dart';
@@ -195,14 +194,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         letterSpacing: 0.0,
                                         lineHeight: 1.5,
                                       ),
-                                  maxLength: 20,
-                                  maxLengthEnforcement:
-                                      MaxLengthEnforcement.enforced,
-                                  buildCounter: (context,
-                                          {required currentLength,
-                                          required isFocused,
-                                          maxLength}) =>
-                                      null,
                                   validator: _model
                                       .emailAddressTextControllerValidator
                                       .asValidator(context),
@@ -284,6 +275,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         _model.passwordVisibility
                                             ? Icons.visibility_outlined
                                             : Icons.visibility_off_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
                                         size: 24.0,
                                       ),
                                     ),
@@ -295,14 +288,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         letterSpacing: 0.0,
                                         lineHeight: 1.5,
                                       ),
-                                  maxLength: 20,
-                                  maxLengthEnforcement:
-                                      MaxLengthEnforcement.enforced,
-                                  buildCounter: (context,
-                                          {required currentLength,
-                                          required isFocused,
-                                          maxLength}) =>
-                                      null,
                                   validator: _model
                                       .passwordTextControllerValidator
                                       .asValidator(context),
@@ -395,6 +380,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       fontFamily: 'Plus Jakarta Sans',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
+                                      fontSize: 16.0,
                                       letterSpacing: 0.0,
                                     ),
                                 elevation: 3.0,

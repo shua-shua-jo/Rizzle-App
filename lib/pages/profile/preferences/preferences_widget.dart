@@ -1,11 +1,12 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/components/custom_appbar_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'preferences_model.dart';
@@ -29,6 +30,17 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
     _model = createModel(context, () => PreferencesModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Preferences'});
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      logFirebaseEvent('PREFERENCES_Preferences_ON_INIT_STATE');
+      logFirebaseEvent('Preferences_update_app_state');
+      FFAppState().userPreference =
+          (currentUserDocument?.userPreference.toList() ?? [])
+              .toList()
+              .cast<String>();
+      setState(() {});
+    });
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -136,13 +148,11 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                   child: Checkbox(
                                                     value: _model
                                                             .checkboxValue1 ??=
-                                                        functions.checkPreference(
-                                                            (currentUserDocument
-                                                                        ?.userPreference
-                                                                        .toList() ??
-                                                                    [])
-                                                                .toList(),
-                                                            'Noli'),
+                                                        (currentUserDocument
+                                                                    ?.userPreference
+                                                                    .toList() ??
+                                                                [])
+                                                            .contains('Noli'),
                                                     onChanged:
                                                         (newValue) async {
                                                       setState(() => _model
@@ -367,13 +377,11 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                                                   child: Checkbox(
                                                     value: _model
                                                             .checkboxValue2 ??=
-                                                        functions.checkPreference(
-                                                            (currentUserDocument
-                                                                        ?.userPreference
-                                                                        .toList() ??
-                                                                    [])
-                                                                .toList(),
-                                                            'Elfili'),
+                                                        (currentUserDocument
+                                                                    ?.userPreference
+                                                                    .toList() ??
+                                                                [])
+                                                            .contains('Elfili'),
                                                     onChanged:
                                                         (newValue) async {
                                                       setState(() => _model
@@ -586,9 +594,19 @@ class _PreferencesWidgetState extends State<PreferencesWidget> {
                               'PREFERENCES_PAGE_UPDATE\n_BTN_ON_TAP');
                           logFirebaseEvent('Button_haptic_feedback');
                           HapticFeedback.lightImpact();
-                          logFirebaseEvent('Button_navigate_to');
+                          logFirebaseEvent('Button_backend_call');
 
-                          context.goNamed('Profile');
+                          await currentUserReference!.update({
+                            ...mapToFirestore(
+                              {
+                                'user_preference': FFAppState().userPreference,
+                              },
+                            ),
+                          });
+                          logFirebaseEvent('Button_update_app_state');
+                          FFAppState().userPreference = [];
+                          logFirebaseEvent('Button_navigate_back');
+                          context.safePop();
                         },
                   text: 'Update\n',
                   options: FFButtonOptions(

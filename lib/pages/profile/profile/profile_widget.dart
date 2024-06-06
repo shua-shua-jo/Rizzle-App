@@ -135,7 +135,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .info,
                                             letterSpacing: 0.0,
-                                            fontWeight: FontWeight.normal,
                                           ),
                                     ),
                                   ),
@@ -229,7 +228,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                   logFirebaseEvent(
                                       'EatingPrefsTile_navigate_to');
 
-                                  context.pushNamed('Onboarding');
+                                  context.pushNamed('Preferences');
                                 },
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
@@ -252,7 +251,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                             child: Padding(
                                               padding: const EdgeInsets.all(4.0),
                                               child: Icon(
-                                                Icons.restaurant_rounded,
+                                                Icons.room_preferences_rounded,
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primary,
@@ -334,6 +333,113 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                                     18.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               'About Us',
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Plus Jakarta Sans',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Divider(
+                                      thickness: 1.0,
+                                      color:
+                                          FlutterFlowTheme.of(context).accent4,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  logFirebaseEvent(
+                                      'PROFILE_PAGE_LogOutTitle_ON_TAP');
+                                  Function() navigate = () {};
+                                  logFirebaseEvent('LogOutTitle_alert_dialog');
+                                  var confirmDialogResponse =
+                                      await showDialog<bool>(
+                                            context: context,
+                                            builder: (alertDialogContext) {
+                                              return AlertDialog(
+                                                title: const Text('Confirm Log Out'),
+                                                content: const Text(
+                                                    'Are you sure you want to log out?'),
+                                                actions: [
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            false),
+                                                    child: const Text('No'),
+                                                  ),
+                                                  TextButton(
+                                                    onPressed: () =>
+                                                        Navigator.pop(
+                                                            alertDialogContext,
+                                                            true),
+                                                    child: const Text('Yes'),
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          ) ??
+                                          false;
+                                  if (confirmDialogResponse) {
+                                    logFirebaseEvent('LogOutTitle_auth');
+                                    GoRouter.of(context).prepareAuthEvent();
+                                    await authManager.signOut();
+                                    GoRouter.of(context)
+                                        .clearRedirectLocation();
+
+                                    navigate = () => context.goNamedAuth(
+                                        'Splash', context.mounted);
+                                  }
+
+                                  navigate();
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 12.0, 0.0, 12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Container(
+                                            width: 40.0,
+                                            height: 40.0,
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .accent1,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(4.0),
+                                              child: Icon(
+                                                Icons.logout_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
+                                                size: 20.0,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    18.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              'Log Out',
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyLarge

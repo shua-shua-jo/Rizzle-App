@@ -64,6 +64,7 @@ class _CharacterDetailsWidgetState extends State<CharacterDetailsWidget> {
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         image: DecorationImage(
                           fit: BoxFit.cover,
+                          alignment: const AlignmentDirectional(0.0, -1.0),
                           image: Image.network(
                             widget.charRef!.characterImage,
                           ).image,

@@ -401,6 +401,9 @@ class _OnboardingCreateUserWidgetState
                                                     ? Icons.visibility_outlined
                                                     : Icons
                                                         .visibility_off_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 size: 24.0,
                                               ),
                                             ),
@@ -511,6 +514,9 @@ class _OnboardingCreateUserWidgetState
                                                     ? Icons.visibility_outlined
                                                     : Icons
                                                         .visibility_off_outlined,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primary,
                                                 size: 24.0,
                                               ),
                                             ),

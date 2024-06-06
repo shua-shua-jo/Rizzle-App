@@ -7,7 +7,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'onboarding_slideshow_model.dart';
 export 'onboarding_slideshow_model.dart';
 
@@ -354,8 +353,8 @@ class _OnboardingSlideshowWidgetState extends State<OnboardingSlideshowWidget>
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
-                                            child: SvgPicture.asset(
-                                              'assets/images/ROOT.svg',
+                                            child: Image.asset(
+                                              'assets/images/ROOT.png',
                                               width: 300.0,
                                               height: 250.0,
                                               fit: BoxFit.cover,
@@ -407,8 +406,8 @@ class _OnboardingSlideshowWidgetState extends State<OnboardingSlideshowWidget>
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
-                                            child: SvgPicture.asset(
-                                              'assets/images/UNDERSTANDING.svg',
+                                            child: Image.asset(
+                                              'assets/images/UNDERSTANDING.png',
                                               width: 300.0,
                                               height: 250.0,
                                               fit: BoxFit.cover,
@@ -460,8 +459,8 @@ class _OnboardingSlideshowWidgetState extends State<OnboardingSlideshowWidget>
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
-                                            child: SvgPicture.asset(
-                                              'assets/images/WOMENS_EMPOWERMENT.svg',
+                                            child: Image.asset(
+                                              'assets/images/WOMENS_EMPOWERMENT.png',
                                               width: 300.0,
                                               height: 250.0,
                                               fit: BoxFit.cover,
@@ -513,8 +512,8 @@ class _OnboardingSlideshowWidgetState extends State<OnboardingSlideshowWidget>
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
-                                            child: SvgPicture.asset(
-                                              'assets/images/SWIPE.svg',
+                                            child: Image.asset(
+                                              'assets/images/SWIPE.png',
                                               width: 300.0,
                                               height: 250.0,
                                               fit: BoxFit.cover,

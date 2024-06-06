@@ -69,7 +69,7 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 24.0, 0.0, 24.0),
+                              0.0, 24.0, 0.0, 8.0),
                           child: Text(
                             'About Us',
                             style: FlutterFlowTheme.of(context)
@@ -82,60 +82,20 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 18.0),
-                          child: Container(
-                            width: double.infinity,
-                            height: 200.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            child: Align(
-                              alignment: const AlignmentDirectional(-1.0, -1.0),
-                              child: Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 12.0, 0.0, 0.0),
-                                child: Container(
-                                  width: 80.0,
-                                  height: 80.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(-1.0, -1.0),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 18.0),
-                            child: Container(
-                              width: 120.0,
-                              height: 120.0,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(24.0),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 6.0),
+                              0.0, 0.0, 0.0, 8.0),
                           child: Text(
-                            'Lost Farm Bloomington',
+                            'Amplifying Women’s Voices in Rizal’s Works',
                             style: FlutterFlowTheme.of(context)
                                 .displaySmall
                                 .override(
                                   fontFamily: 'Outfit',
+                                  fontSize: 30.0,
                                   letterSpacing: 0.0,
                                 ),
                           ),
                         ),
                         Text(
-                          'Lost Farm is owned and operated by the husband and wife team of Ron and Kelli Abdon. Four generations of the Abdon/Cole family have now lived on Lost Farm in northwest Monroe County.  It provides the inspiration for much of the way we love to eat.\n\nChef Ron has been a cook, baker and caterer, teaching him to prepare delicious dishes with the best safety practices from over 20 years of restaurant experience.',
+                          'The Rizzle App is a powerful platform that brings to light the often overlooked narratives of women depicted in the literary works of Dr. Jose Rizal. Within these narratives, women play multifaceted roles—some as victims, others as revolutionaries, and still more as silent witnesses to the injustices around them.\n\nThe app meticulously extracts and highlights the experiences of these women, shedding light on their struggles, resilience, and sacrifices. Through interactive storytelling, users can immerse themselves in the lives of characters like Maria Clara, Sisa, and Juli. It confronts the harsh realities faced by women—oppression, discrimination, and societal constraints—under the Spanish regime.\n\nBy amplifying these voices, Rizzle aims to empower women and inspire conversations about historical and contemporary gender issues. Users can explore character biographies, read excerpts, and engage in discussions within the app. Rizzle encourages empathy, reflection, and a deeper understanding of the challenges faced by women throughout history.\n\nThe app serves as an educational resource, bridging literature, history, and social justice. It invites users to critically analyze Rizal’s portrayal of women, encouraging dialogue about representation and agency. Through quizzes, articles, and curated content, Rizzle fosters a holistic learning experience.',
                           style:
                               FlutterFlowTheme.of(context).labelLarge.override(
                                     fontFamily: 'Outfit',
@@ -145,98 +105,311 @@ class _AboutUsWidgetState extends State<AboutUsWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 8.0),
+                          child: Text(
+                            'Meet the Team: Rizzle App Developers',
+                            style: FlutterFlowTheme.of(context)
+                                .displaySmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  fontSize: 30.0,
+                                  letterSpacing: 0.0,
+                                ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 32.0, 0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                'Your Chefs',
-                                style: FlutterFlowTheme.of(context)
-                                    .headlineSmall
-                                    .override(
-                                      fontFamily: 'Outfit',
-                                      letterSpacing: 0.0,
-                                    ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 12.0, 0.0, 0.0),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 12.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Container(
-                                            width: 100.0,
-                                            height: 100.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              image: DecorationImage(
-                                                fit: BoxFit.cover,
-                                                image: Image.network(
-                                                  'https://images.squarespace-cdn.com/content/v1/604ea1edbaa6172159790470/1620070106592-ZMAF177TH9U05WVFGS77/Ron%2BPortrait.jpg?format=750w',
-                                                ).image,
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xCB935153),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 12.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Container(
+                                              width: 100.0,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  image: Image.asset(
+                                                    'assets/images/josh.png',
+                                                  ).image,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
                                               ),
-                                              borderRadius:
-                                                  BorderRadius.circular(12.0),
                                             ),
-                                          ),
-                                          Expanded(
-                                            child: Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      12.0, 0.0, 0.0, 0.0),
-                                              child: Column(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    'Chef Ron',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .titleMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                  ),
-                                                  Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 6.0,
-                                                                0.0, 0.0),
-                                                    child: Text(
-                                                      'Born in Indianapolis, Chef Ron now makes his home in the hinterlands of Monroe County.',
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Joshua Abello',
                                                       style: FlutterFlowTheme
                                                               .of(context)
-                                                          .bodySmall
+                                                          .titleMedium
                                                           .override(
                                                             fontFamily:
                                                                 'Plus Jakarta Sans',
                                                             letterSpacing: 0.0,
                                                           ),
                                                     ),
-                                                  ),
-                                                ],
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  6.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '4th Year BS Computer Science',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: const Color(
+                                                                      0xFFF2B7BA),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
-                            ],
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xCB935153),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 12.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Container(
+                                              width: 100.0,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  image: Image.asset(
+                                                    'assets/images/nico.png',
+                                                  ).image,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Nico Dimaunahan',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  6.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '4th Year BS Computer Science',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: const Color(
+                                                                      0xFFF2B7BA),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: const Color(0xCB935153),
+                                  borderRadius: BorderRadius.circular(10.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 12.0, 0.0, 0.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            8.0, 0.0, 8.0, 12.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Container(
+                                              width: 100.0,
+                                              height: 100.0,
+                                              decoration: BoxDecoration(
+                                                color: Colors.transparent,
+                                                image: DecorationImage(
+                                                  fit: BoxFit.contain,
+                                                  alignment:
+                                                      const AlignmentDirectional(
+                                                          0.0, 0.0),
+                                                  image: Image.asset(
+                                                    'assets/images/cliff.png',
+                                                  ).image,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(12.0),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        12.0, 0.0, 0.0, 0.0),
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      'Cliff Cezar',
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .titleMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            letterSpacing: 0.0,
+                                                          ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  6.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: Text(
+                                                        '4th Year BS Computer Science',
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Plus Jakarta Sans',
+                                                                  color: const Color(
+                                                                      0xFFF2B7BA),
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w500,
+                                                                ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ].divide(const SizedBox(height: 10.0)),
                           ),
                         ),
                       ],

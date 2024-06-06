@@ -20,21 +20,24 @@ String returnProfileGreeting(DateTime timestamp) {
   } else if (hour >= 12 && hour < 17) {
     return "Good afternoon,";
   } else {
-    return "Goodnight,";
+    return "Good evening,";
   }
 }
 
 List<CharactersRecord>? filterCharacters(
   List<CharactersRecord> inputCharacters,
   List<String> userPreference,
+  List<String> matches,
 ) {
   List<CharactersRecord> charRecords = [];
 
   for (CharactersRecord char in inputCharacters) {
     bool isNolifili = char.isNolifili;
+    String charName = char.characterName;
     String charOrigin = char.characterOrigin;
 
-    if (userPreference.contains(charOrigin) || isNolifili) {
+    if ((!matches.contains(charName) & userPreference.contains(charOrigin)) ||
+        (!matches.contains(charName) & isNolifili)) {
       charRecords.add(char);
     }
   }
@@ -45,28 +48,8 @@ List<CharactersRecord>? filterCharacters(
   }
 }
 
-bool showRefreshBtn(
-  List<CharactersRecord> characterDocs,
-  List<String> userPreference,
-) {
-  bool show = true;
-  for (CharactersRecord char in characterDocs) {
-    bool isNolifili = char.isNolifili;
-    String charOrigin = char.characterOrigin;
-
-    if (userPreference.contains(charOrigin) || isNolifili) {
-      show = false;
-      break;
-    }
-  }
-  return show;
-}
-
-bool checkPreference(
-  List<String> userPreference,
-  String preference,
-) {
-  if (userPreference.contains(preference)) {
+bool showWidgetChar(int numOfMatches) {
+  if (numOfMatches < 13) {
     return true;
   } else {
     return false;

@@ -345,15 +345,13 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? isWeb
-                  ? Container()
-                  : Container(
-                      color: Colors.transparent,
-                      child: Image.asset(
-                        'assets/images/RIZZZLE_splash.png',
-                        fit: BoxFit.cover,
-                      ),
-                    )
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/RIZZZLE_splash.png',
+                    fit: BoxFit.cover,
+                  ),
+                )
               : page;
 
           final transitionInfo = state.transitionInfo;

@@ -50,11 +50,6 @@ class UsersRecord extends FirestoreRecord {
   List<String> get userPreference => _userPreference ?? const [];
   bool hasUserPreference() => _userPreference != null;
 
-  // "rejected" field.
-  List<String>? _rejected;
-  List<String> get rejected => _rejected ?? const [];
-  bool hasRejected() => _rejected != null;
-
   // "matches" field.
   List<String>? _matches;
   List<String> get matches => _matches ?? const [];
@@ -68,7 +63,6 @@ class UsersRecord extends FirestoreRecord {
     _createdTime = snapshotData['created_time'] as DateTime?;
     _phoneNumber = snapshotData['phone_number'] as String?;
     _userPreference = getDataList(snapshotData['user_preference']);
-    _rejected = getDataList(snapshotData['rejected']);
     _matches = getDataList(snapshotData['matches']);
   }
 
@@ -140,7 +134,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.createdTime == e2?.createdTime &&
         e1?.phoneNumber == e2?.phoneNumber &&
         listEquality.equals(e1?.userPreference, e2?.userPreference) &&
-        listEquality.equals(e1?.rejected, e2?.rejected) &&
         listEquality.equals(e1?.matches, e2?.matches);
   }
 
@@ -153,7 +146,6 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.createdTime,
         e?.phoneNumber,
         e?.userPreference,
-        e?.rejected,
         e?.matches
       ]);
 

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'reset_password_model.dart';
 export 'reset_password_model.dart';
 
@@ -82,6 +81,7 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                             .headlineMedium
                             .override(
                               fontFamily: 'Outfit',
+                              fontSize: 32.0,
                               letterSpacing: 0.0,
                             ),
                       ),
@@ -165,13 +165,6 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget> {
                               letterSpacing: 0.0,
                               lineHeight: 1.5,
                             ),
-                        maxLength: 20,
-                        maxLengthEnforcement: MaxLengthEnforcement.enforced,
-                        buildCounter: (context,
-                                {required currentLength,
-                                required isFocused,
-                                maxLength}) =>
-                            null,
                         validator: _model.emailAddressTextControllerValidator
                             .asValidator(context),
                       ),
